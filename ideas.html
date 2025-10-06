@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Kidpreneur · Ideas</title>
+
+<link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+<link href="styles.css" rel="stylesheet">
+</head>
+<body>
+
+<main class="wrap">
+  <header class="hero">
+    <h1>Share Your Idea</h1>
+    <p class="lead">Have an idea for a business, app, or social project? We want to hear it! Submit your concept for a chance to be featured and get mentor feedback.</p>
+    <div class="brand">Create once. Ship often. Build responsibly.</div>
+  </header>
+
+  <form id="ideaForm" class="form-card" enctype="multipart/form-data" autocomplete="off">
+    <div class="row">
+        <div class="col">
+          <label for="name">Full name</label>
+          <input id="name" name="name" required placeholder="Asha Patel">
+        </div>
+        <div class="col">
+          <label for="contact">Phone / Email</label>
+          <input id="contact" name="contact" required placeholder="98765 43210 or asha@email.com">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+          <label for="country">Country</label>
+          <select id="country" name="country" required>
+            <option value="">— Select country —</option>
+            <option>India</option>
+            <option>United States</option>
+            <option>United Kingdom</option>
+            <option>Australia</option>
+            <option>Canada</option>
+            <option>Singapore</option>
+            <option>Japan</option>
+            <option>China</option>
+            <option>France</option>
+            <option>Germany</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="col">
+          <label for="city">City</label>
+          <input id="city" name="city" placeholder="Mumbai">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+          <label for="grade">Grade / Standard</label>
+          <select id="grade" name="grade" required>
+            <option value="">— Select grade —</option>
+            <option>6</option><option>7</option><option>8</option><option>9</option>
+            <option>10</option><option>11</option><option>12</option>
+            <option>College (1st year)</option>
+            <option>College (2nd year)</option>
+            <option>College (3rd year)</option>
+            <option>College (4th year)</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="col">
+          <label for="field">Field / Category</label>
+          <select id="field" name="field" required>
+            <option value="">— Select field —</option>
+            <option>AI / Machine Learning</option>
+            <option>Green Energy / Sustainability</option>
+            <option>Robotics / Hardware</option>
+            <option>Mobile / Web Apps</option>
+            <option>Design / UX</option>
+            <option>Social Impact</option>
+            <option>E-commerce / Retail</option>
+            <option>Fintech / Blockchain</option>
+            <option>Healthcare / Biotech</option>
+            <option>Food / Agriculture</option>
+            <option>Education Technology (EdTech)</option>
+            <option>Other</option>
+          </select>
+        </div>
+    </div>
+
+    <label for="ideaName">Idea title</label>
+    <input id="ideaName" name="ideaName" placeholder="Smart compost bin" required>
+
+    <label for="description">Short description</label>
+    <textarea id="description" name="description" required placeholder="Describe the idea in ~200 words"></textarea>
+
+    <label for="attachment">Attachment (image / pdf / ppt) — optional</label>
+    <div class="file-row">
+        <input id="attachment" name="attachment" type="file" accept=".png,.jpg,.jpeg,.pdf,.ppt,.pptx,.docx,.mp4">
+        <div class="file-preview" id="filePreview">No file selected</div>
+    </div>
+    <div class="small">The server has no file size limit for uploads.</div>
+
+    <div class="actions">
+      <button type="submit" class="btn btn-primary">Submit Idea</button>
+      <button type="button" class="ghost" id="clearBtn">Clear</button>
+    </div>
+
+    <div id="status"></div>
+  </form>
+</main>
+
+<nav class="dock">
+  <a href="index.html">
+    <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 3l9 7v10a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V10l9-7z"/></svg>
+    <span>Home</span>
+  </a>
+  <a href="about.html">
+    <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 1 0 .001 20.001A10 10 0 0 0 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+    <span>About</span>
+  </a>
+  <a href="explore.html">
+    <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+    <span>Explore</span>
+  </a>
+  <a class="active" href="ideas.html">
+    <svg viewBox="0 0 24 24"><path fill="#0ea5ff" d="M9 21h6v-1a3 3 0 0 1 3-3h1a8 8 0 1 0-14 0h1a3 3 0 0 1 3 3v1z"/></svg>
+    <span>Ideas</span>
+  </a>
+  <a href="gallery.html">
+    <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm-2 5a2 2 0 1 0 4 0 2 2 0 0 0-4 0zM12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm8 10a8 8 0 1 1-16 0 8 8 0 0 1 16 0z"/></svg>
+    <span>Gallery</span>
+  </a>
+  <a href="inspiration.html">
+    <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 1a11 11 0 0 0-9.846 16.59l-1.352 1.353a.5.5 0 0 0 .353.858H8.5V23a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1v-3.2l5.345-5.345A11 11 0 0 0 12 1zm0 2.5a8.5 8.5 0 1 1 0 17 8.5 8.5 0 0 1 0-17zm-1.5 5h3v2h-3v-2zm0 4h3v2h-3v-2z"/></svg>
+    <span>Inspiration</span>
+  </a>
+</nav>
+
+<script>
+    // small UI bindings
+    const form = document.getElementById('ideaForm');
+    const status = document.getElementById('status');
+    const attachment = document.getElementById('attachment');
+    const filePreview = document.getElementById('filePreview');
+    const clearBtn = document.getElementById('clearBtn');
+  
+    attachment.addEventListener('change', () => {
+      const f = attachment.files[0];
+      if (!f) { filePreview.textContent = 'No file selected'; return; }
+      const friendly = `${f.name} — ${(f.size/1024/1024).toFixed(2)} MB`;
+      filePreview.textContent = friendly;
+    });
+  
+    clearBtn.addEventListener('click', () => {
+      form.reset();
+      filePreview.textContent = 'No file selected';
+      status.style.display='none';
+    });
+  
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      status.className=''; status.style.display='block'; status.textContent = 'Submitting…';
+  
+      const fd = new FormData(form);
+  
+      try {
+        const resp = await fetch('http://106.213.87.245:16000/', { // IP subject to change
+          method: 'POST',
+          body: fd
+        });
+        const text = await resp.text();
+        if (resp.ok) {
+          status.className = 'ok';
+          status.textContent = text || '✅ Submitted successfully';
+          form.reset();
+          filePreview.textContent = 'No file selected';
+        } else {
+          status.className = 'err';
+          status.textContent = '❌ ' + text;
+        }
+      } catch (err) {
+        console.error(err);
+        status.className = 'err';
+        status.textContent = 'Network Error';
+      }
+    });
+  
+    // initial animation
+    anime({targets:'.form-card', opacity:[0,1], translateY:[16,0], duration:700, easing:'easeOutCubic'});
+</script>
+
+</body>
+</html>
+
+
+
+
